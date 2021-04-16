@@ -6,6 +6,20 @@
 </head>
 
 <body>
-#{helloWorld.message}
+<form action="#{search}" name="get">
+    <p>Фамилия:</p>
+    <input name="surname" value="ВВЕДИТЕ ФАМИЛИЮ"/>
+    <p>ИМЯ:</p>
+    <input name="name"/>
+    <p>ОТЧЕСТВО:</p>
+    <input name="patronymic"/>
+    <p>Идентификационный номер:</p>
+    <input name="identif"/>
+    <p>Серия:</p>
+    <input name="doc_series" size="5"/>
+    № Паспорта:
+    <input name="doc_num" size="15"/>
+    <p><button type="submit">Поиск в локальной БД</button></p>
+</form>
 </body>
 </html>
