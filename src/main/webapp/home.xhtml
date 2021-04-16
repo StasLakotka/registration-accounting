@@ -1,25 +1,35 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui">
 <head>
     <title>Registration Accounting</title>
 </head>
 
 <body>
+
 <form action="#{search}" name="get">
-    <p>Фамилия:</p>
-    <input name="surname" value="ВВЕДИТЕ ФАМИЛИЮ"/>
-    <p>Имя:</p>
-    <input name="name"/>
-    <p>Отчество:</p>
-    <input name="patronymic"/>
-    <p>Идентификационный номер:</p>
-    <input name="identif"/>
-    <p>Серия:</p>
-    <input name="doc_series" size="5"/>
-    № Паспорта:
-    <input name="doc_num" size="15"/>
-    <p><button type="submit">Поиск в локальной БД</button></p>
+    <label> Фамилия<br/>
+        <input name="surname"/><br/>
+    </label>
+    <label>Имя <br/>
+        <input name="name"/><br/>
+    </label>
+    <label>Отчество <br/>
+        <input name="patronymic"/><br/>
+    </label>
+    <label>Идентификационный номер<br/>
+        <input name="identif"/><br/>
+    </label>
+    <label>Серия<br/>
+        <input name="doc_series" size="5"/><br/>
+    </label>
+    <label> № Паспорта<br/>
+        <input name="doc_num" size="15"/><br/>
+    </label>
+    <p>
+        <button type="submit">Поиск в локальной БД</button>
+    </p>
 </form>
 </body>
 </html>
