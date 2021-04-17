@@ -1,35 +1,43 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:p="http://primefaces.org/ui">
-<head>
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui">
+<h:head>
     <title>Registration Accounting</title>
-</head>
+</h:head>
 
-<body>
+<h:body>
 
-<form action="#{search}" name="get">
-    <label> Фамилия<br/>
-        <input name="surname"/><br/>
-    </label>
-    <label>Имя <br/>
-        <input name="name"/><br/>
-    </label>
-    <label>Отчество <br/>
-        <input name="patronymic"/><br/>
-    </label>
-    <label>Идентификационный номер<br/>
-        <input name="identif"/><br/>
-    </label>
-    <label>Серия<br/>
-        <input name="doc_series" size="5"/><br/>
-    </label>
-    <label> № Паспорта<br/>
-        <input name="doc_num" size="15"/><br/>
-    </label>
-    <p>
-        <button type="submit">Поиск в локальной БД</button>
-    </p>
-</form>
-</body>
+    <h:form>
+
+        <p:growl id="growl" showDetail="true"/>
+
+        <p:outputLabel value="Фамилия"/>
+        <br/>
+        <p:inputText value="#{searchLocalDatabase.query.surname}"/>
+        <br/>
+
+
+        <label>Имя <br/>
+            <input name="name"/><br/>
+        </label>
+        <label>Отчество <br/>
+            <input name="patronymic"/><br/>
+        </label>
+        <label>Идентификационный номер<br/>
+            <input name="identif"/><br/>
+        </label>
+        <label>Серия<br/>
+            <input name="doc_series" size="5"/><br/>
+        </label>
+        <label> № Паспорта<br/>
+            <input name="doc_num" size="15"/><br/>
+        </label>
+        <br/>
+        <p:commandButton value="Поиск в локальной БД" actionListener="#{searchLocalDatabase.searchIntoLocalDB()}"
+                         update="growl"/>
+    </h:form>
+
+
+</h:body>
 </html>
