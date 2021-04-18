@@ -5,4 +5,7 @@ import javax.faces.bean.ManagedBean;
 @ManagedBean(name = "search", eager = true)
 public class SearchLocalDatabase {
 
+    public void searchLocalBD() {
+
+    }
 }
