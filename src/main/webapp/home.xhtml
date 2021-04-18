@@ -1,38 +1,45 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:p="http://primefaces.org/ui">
-<head>
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui">
+<h:head>
     <title>Registration Accounting</title>
-</head>
 
-<body>
+    <h:body>
 
-<form action="#{search}" name="get">
-    <p:fieldset>
-    <label> Фамилия<br/>
-        <input name="surname"/><br/>
-    </label>
-    <label>Имя <br/>
-        <p:inputText name="name" value="имя" style="align-content: center"/><br/>
-    </label>
-    <label>Отчество <br/>
-        <input name="patronymic"/><br/>
-    </label>
-    <label>Идентификационный номер<br/>
-        <input name="identif"/><br/>
-    </label>
-    <label>Серия<br/>
-        <p:inputText name="doc_series"  size="2"/><br/>
-    </label>
-    <label> № Паспорта<br/>
-        <input name="doc_num" size="15"/><br/>
-    </label>
-    <p>
-     <p:commandButton action="#{search}" value="поиск" />
-    </p>
-</p:fieldset>
-</form>
+        <h:form >
 
-</body>
+            <p:growl id="growl" showDetail="true"/>
+
+            <p:outputLabel value="Фамилия"/>
+            <br/>
+            <p:inputText placeholder="ВВЕДИТЕ ФАМИЛИЮ" value="#{searchLocalDatabase.query.surname}"/>
+            <br/>
+            <p:outputLabel value="Имя"/>
+            <br/>
+            <p:inputText placeholder="ВВЕДИТЕ ИМЯ" value="#{searchLocalDatabase.query.name}"/>
+            <br/>
+            <p:outputLabel value="Отчество"/>
+            <br/>
+            <p:inputText placeholder="ВВЕДИТЕ ОТЧЕСТВО" value="#{searchLocalDatabase.query.patronymic}"/>
+            <br/>
+            <p:outputLabel value="Идентификационный номер"/>
+            <br/>
+            <p:inputText placeholder="ВВЕДИТЕ НОМЕР" value="#{searchLocalDatabase.query.identif}"/>
+            <br/>
+            <p:outputLabel value="Серия"/>
+            <br/>
+            <p:inputText  value="#{searchLocalDatabase.query.doc_series}"/>
+            <br/>
+            <p:outputLabel value="№ Паспорта"/>
+            <br/>
+            <p:inputText  value="#{searchLocalDatabase.query.doc_num}"/>
+            <br/>
+            <p:commandButton value="Поиск в локальной БД" actionListener="#{searchLocalDatabase.searchIntoLocalDB()}"
+                             update="growl"/>
+        </h:form>
+
+
+    </h:body>
+</h:head>
 </html>
