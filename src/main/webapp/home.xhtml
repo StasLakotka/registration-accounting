@@ -4,11 +4,9 @@
       xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui">
 <h:head>
     <title>Registration Accounting</title>
-
     <h:body>
 
-        <h:form >
-
+        <h:form>
             <p:growl id="growl" showDetail="true"/>
 
             <p:outputLabel value="Фамилия"/>
@@ -29,17 +27,17 @@
             <br/>
             <p:outputLabel value="Серия"/>
             <br/>
-            <p:inputText  value="#{searchLocalDatabase.query.doc_series}"/>
+            <p:inputText size="3" value="#{searchLocalDatabase.query.docSeries}"/>
             <br/>
             <p:outputLabel value="№ Паспорта"/>
             <br/>
-            <p:inputText  value="#{searchLocalDatabase.query.doc_num}"/>
+            <p:inputText size="6" value="#{searchLocalDatabase.query.docNum}"/>
             <br/>
-            <p:commandButton value="Поиск в локальной БД" actionListener="#{searchLocalDatabase.searchIntoLocalDB()}"
+            <p:commandButton value="Поиск в локальной БД"
+                             actionListener="#{searchLocalDatabase.searchIntoLocalDB()}"
                              update="growl"/>
+
         </h:form>
-
-
     </h:body>
 </h:head>
 </html>
