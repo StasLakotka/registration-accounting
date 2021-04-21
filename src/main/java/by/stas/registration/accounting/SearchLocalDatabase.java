@@ -11,7 +11,6 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 
 @ManagedBean
 @SessionScoped
@@ -26,12 +25,12 @@ public class SearchLocalDatabase implements Serializable {
     }
 
     public void searchIntoLocalDB() throws UnsupportedEncodingException {
-        String surname = URLEncoder.encode(query.getSurname(), "UTF-8");
+
 
         RestTemplate restTemplate = new RestTemplate();
 
         SearchResults[] searchResults = restTemplate.getForObject("https://a.todes.by:13555/data-service-test/api/v1/data?" +
-                "sys_organ=26&identif=" + query.getIdentif() + "&surname=" + surname +
+                "sys_organ=26&identif=" + query.getIdentif() + "&surname=" + query.getSurname() +
                 "&name=" + query.getName() + "&patronymic=" + query.getPatronymic() + "&doc_series=" + query.getDocSeries() +
                 "&doc_num=" + query.getDocNum(), SearchResults[].class);
         SearchResults searchResults1 = new SearchResults();
