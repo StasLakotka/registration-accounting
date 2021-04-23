@@ -39,11 +39,14 @@
                              update="growl"/>
 
         </h:form>
+
         <div class="card">
+
             <h:form>
+
                 <p:dataTable var="localDatabase" value="#{searchLocalDatabase.searchResults}" paginator="true"
                              rows="15" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport}
-                             {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
+                             {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" paginatorPosition="bottom">
                     <p:column headerText="Фамилия">
                         <h:outputText value="#{localDatabase.surname}"/>
                     </p:column>
@@ -57,7 +60,7 @@
                     </p:column>
 
                     <p:column headerText="Дата рождения">
-                        <h:outputText value="#{localDatabase.bdate}" />
+                        <h:outputText value="#{localDatabase.bdate}"/>
                     </p:column>
 
                     <p:column headerText="Идентификационный номер">
@@ -76,6 +79,7 @@
                         <h:outputText value="#{localDatabase.dsdDateRec}"/>
                     </p:column>
                 </p:dataTable>
+
             </h:form>
         </div>
 
