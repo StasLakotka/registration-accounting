@@ -19,7 +19,7 @@ public class SearchLocalDatabase implements Serializable {
     private final Query query = new Query();
 
     @Getter
-    private SearchResults[] searchResults = null;
+    private SearchResults[] searchResults ;
 
     @PostConstruct
     private void init() {
