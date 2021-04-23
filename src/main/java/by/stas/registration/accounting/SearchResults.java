@@ -3,9 +3,10 @@ package by.stas.registration.accounting;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
+
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SearchResults {
+public class SearchResults  {
 
     private String surname;
     private String name;
