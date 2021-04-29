@@ -19,7 +19,7 @@ public class SearchLocalDatabase implements Serializable {
     private final Query query = new Query();
 
     @Getter
-    private SearchResults[] searchResults ;
+    private SearchResults[] searchResults;
 
     @PostConstruct
     private void init() {
@@ -27,8 +27,6 @@ public class SearchLocalDatabase implements Serializable {
     }
 
     public void searchIntoLocalDB() {
-
-
         RestTemplate restTemplate = new RestTemplate();
         searchResults = restTemplate.getForObject("https://a.todes.by:13555/data-service-test/api/v1/data?" +
                 "sys_organ=26&identif=" + query.getIdentif() + "&surname=" + query.getSurname() +

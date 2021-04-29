@@ -3,9 +3,8 @@ package by.stas.registration.accounting;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
-
-@Data
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Data
 public class SearchResults  {
 
     private String surname;
@@ -13,8 +12,9 @@ public class SearchResults  {
     private String sname;
     private String bdate;
     private String identif;
-   // private String addressLast;
+    private AddressLast addressLast;
     private String ateAddress;
     private String dsdDateRec;
+
 
 }

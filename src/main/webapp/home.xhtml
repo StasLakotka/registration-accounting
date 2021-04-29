@@ -1,12 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui">
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core">
+
 <h:head>
     <title>Registration Accounting</title>
     <h:body>
 
         <h:form>
+
             <p:growl id="growl" showDetail="true"/>
 
             <p:outputLabel value="Фамилия"/>
@@ -19,7 +21,8 @@
             <br/>
             <p:outputLabel value="Отчество"/>
             <br/>
-            <p:inputText placeholder="ВВЕДИТЕ ОТЧЕСТВО" value="#{searchLocalDatabase.query.patronymic}"/>
+            <p:inputText placeholder="ВВЕДИТЕ ОТЧЕСТВО"
+                         value="#{searchLocalDatabase.query.patronymic}"/>
             <br/>
             <p:outputLabel value="Идентификационный номер"/>
             <br/>
@@ -32,55 +35,64 @@
             <p:outputLabel value="№ Паспорта"/>
             <br/>
             <p:inputText size="6" value="#{searchLocalDatabase.query.docNum}"/>
-
             <br/>
             <p:commandButton value="Поиск в локальной БД"
                              actionListener="#{searchLocalDatabase.searchIntoLocalDB()}"
                              update="growl"/>
-
         </h:form>
-
-
         <h:form>
+            <div class="card">
 
-            <p:dataTable var="localDatabase" value="#{searchLocalDatabase.searchResults}" paginator="true"
-                         rows="15" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport}
-                             {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" paginatorPosition="bottom">
-                <p:column headerText="Фамилия">
-                    <h:outputText value="#{localDatabase.surname}"/>
-                </p:column>
+                <p:dataTable var="localDatabase" value="#{searchLocalDatabase.searchResults}"
+                             paginator="true"
+                             rows="15" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport}
+                             {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" paginatorPosition="bottom"
+                             size="small">
 
-                <p:column headerText="Имя">
-                    <h:outputText value="#{localDatabase.name}"/>
-                </p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Результаты поиска"/>
+                    </f:facet>
 
-                <p:column headerText="Отчество">
-                    <h:outputText value="#{localDatabase.sname}"/>
-                </p:column>
+                    <p:column headerText="Фамилия">
+                        <h:outputText value="#{localDatabase.surname}"/>
+                    </p:column>
 
-                <p:column headerText="Дата рождения">
-                    <h:outputText value="#{localDatabase.bdate}"/>
-                </p:column>
+                    <p:column headerText="Имя">
+                        <h:outputText value="#{localDatabase.name}"/>
+                    </p:column>
 
-                <p:column headerText="Идентификационный номер">
-                    <h:outputText value="#{localDatabase.identif}"/>
-                </p:column>
+                    <p:column headerText="Отчество">
+                        <h:outputText value="#{localDatabase.sname}"/>
+                    </p:column>
 
-                <p:column headerText="Адрес регистрации (после конвертации)">
-                    <h:outputText value=""/>
-                </p:column>
+                    <p:column headerText="Дата рождения">
+                        <h:outputText value="#{localDatabase.bdate}"/>
+                    </p:column>
 
-                <p:column headerText="Адрес регистрации (коды АТЕ и ТЕ)">
-                    <h:outputText value="#{localDatabase.ateAddress}"/>
-                </p:column>
+                    <p:column headerText="Идентификационный номер">
+                        <h:outputText value="#{localDatabase.identif}"/>
+                    </p:column>
 
-                <p:column headerText="Дата регистрации">
-                    <h:outputText value="#{localDatabase.dsdDateRec}"/>
-                </p:column>
-            </p:dataTable>
+                    <p:column headerText="Адрес регистрации (после конвертации)">
+                        <h:outputText value="область #{localDatabase.addressLast.areaL} район #{localDatabase.addressLast.regionL}
+                                  #{localDatabase.addressLast.villageCouncil} #{localDatabase.addressLast.typeCityL}
+                                  #{localDatabase.addressLast.cityL} #{localDatabase.addressLast.typeStreetL}
+                                  #{localDatabase.addressLast.streetL}  дом  #{localDatabase.addressLast.house}
+                                   корпус  #{localDatabase.addressLast.korps}  квартира  #{localDatabase.addressLast.app}"/>
 
+                    </p:column>
+
+                    <p:column headerText="Адрес регистрации (коды АТЕ и ТЕ)">
+                        <h:outputText value="#{localDatabase.ateAddress}"/>
+                    </p:column>
+
+                    <p:column headerText="Дата регистрации">
+                        <h:outputText value="#{localDatabase.dsdDateRec}"/>
+                    </p:column>
+
+                </p:dataTable>
+            </div>
         </h:form>
-
 
     </h:body>
 </h:head>
