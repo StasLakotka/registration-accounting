@@ -5,7 +5,7 @@ import lombok.Data;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
-public class SearchResults  {
+public class SearchResults {
 
     private String surname;
     private String name;
@@ -16,5 +16,10 @@ public class SearchResults  {
     private String ateAddress;
     private String dsdDateRec;
 
-
+    public String address() {
+        return "обл: " + addressLast.getAreaL() + ", р-н: " + addressLast.getRegionL() + ", с/с: "
+                + addressLast.getVillageCouncil() + ", " + addressLast.getTypeCityL() + " " + addressLast.getCityL()
+                + ", " + addressLast.getTypeStreetL() + " " + addressLast.getStreetL() + ", дом: " + addressLast.getHouse()
+                + ", корпус: " + addressLast.getKorps() + ", кв: " + addressLast.getApp();
+    }
 }

@@ -1,14 +1,11 @@
 package by.stas.registration.accounting;
 
-
 import lombok.Getter;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
 import java.io.Serializable;
 
 @ManagedBean
@@ -34,9 +31,8 @@ public class SearchLocalDatabase implements Serializable {
                 "&doc_num=" + query.getDocNum(), SearchResults[].class);
 
 
-        FacesContext.getCurrentInstance()
-                .addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Инфо", query.toString()));
+//        FacesContext.getCurrentInstance()
+//                .addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Инфо", query.toString()));
 
     }
-
 }
