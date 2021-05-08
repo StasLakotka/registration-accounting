@@ -14,42 +14,42 @@
                     <p:outputLabel value="Фамилия"/>
                     <br/>
                     <p:inputText placeholder="ВВЕДИТЕ ФАМИЛИЮ" size="24"
-                                 value="#{searchLocalDatabase.query.surname}"/>
+                                 value="#{regAccountingContext.query.surname}"/>
                     <br/>
                     <p:outputLabel value="Имя"/>
                     <br/>
-                    <p:inputText placeholder="ВВЕДИТЕ ИМЯ" size="24" value="#{searchLocalDatabase.query.name}"/>
+                    <p:inputText placeholder="ВВЕДИТЕ ИМЯ" size="24" value="#{regAccountingContext.query.name}"/>
                     <br/>
                     <p:outputLabel value="Отчество"/>
                     <br/>
                     <p:inputText placeholder="ВВЕДИТЕ ОТЧЕСТВО" size="24"
-                                 value="#{searchLocalDatabase.query.patronymic}"/>
+                                 value="#{regAccountingContext.query.patronymic}"/>
                     <br/>
                     <p:outputLabel value="Идентификационный номер"/>
                     <br/>
                     <p:inputText placeholder="ВВЕДИТЕ НОМЕР" size="24"
-                                 value="#{searchLocalDatabase.query.identif}"/>
+                                 value="#{regAccountingContext.query.identif}"/>
 
                     <div class="p-grid">
                         <div class="p-field p-col">
                             <p:outputLabel value="Серия"/>
                             <br/>
-                            <p:inputText size="4" value="#{searchLocalDatabase.query.docSeries}"/>
+                            <p:inputText size="4" value="#{regAccountingContext.query.docSeries}"/>
                         </div>
                         <div class="p-field p-col">
                             <p:outputLabel value="№ Паспорта"/>
                             <br/>
-                            <p:inputText size="10" value="#{searchLocalDatabase.query.docNum}"/>
+                            <p:inputText size="10" value="#{regAccountingContext.query.docNum}"/>
                         </div>
                     </div>
                     <p:commandButton value="Поиск в локальной БД"
-                                     actionListener="#{searchLocalDatabase.searchIntoLocalDB()}"
+                                     actionListener="#{searcher.searchIntoLocalDB()}"
                                      update="table"/>
 
                 </div>
 
                 <div class="p-field p-col">
-                    <p:dataTable  var="localDatabase" value="#{searchLocalDatabase.searchResults}"
+                    <p:dataTable  var="localDatabase" value="#{regAccountingContext.searchResults}"
                                  paginator="true"
                                  rows="15" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport}
                              {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" paginatorPosition="bottom"
